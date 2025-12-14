@@ -1,0 +1,96 @@
+@import "theme-colors.css";
+
+
+* {
+    font-family: 'JetBrains Mono Nerd Font', monospace;
+    font-size: 16px;
+    color: @fg; 
+    border: none;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 3. JANELA PRINCIPAL (O pop-up inteiro do Wofi) */
+window {
+    background-color: @bg; 
+    border: 1px solid @pri;     /* Borda fina de destaque */
+    border-radius: 12px;           /* Cantos suaves */
+    padding: 15px;                 /* Espaçamento interno */
+    
+    /* Dimensões sugeridas para media player */
+    min-width: 400px;
+}
+
+/* 4. BARRA DE PROMPT/INPUT (Onde a linha de imagem ou info aparece) */
+/* Usamos #input para estilizar a área superior do dmenu */
+#input {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    
+    /* Garante que o texto de info do álbum (primeira linha) seja claro */
+    color: @foreground; 
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* 5. ITEM DE ENTRADA (Cada linha: Imagem, Barra de Progresso, Botões) */
+#entry {
+    background-color: transparent;
+    padding: 8px 12px;             /* Espaçamento interno em cada linha */
+    margin: 4px 0px;               /* Espaçamento entre as linhas */
+    border-radius: 8px;            
+}
+
+/* 6. ITEM SELECIONADO (Efeito hover/foco nos botões) */
+#entry:selected {
+    background-color: @bga; 
+    color: @alr;           
+}
+
+/* 7. ESTILIZAÇÃO DA IMAGEM (Capa do Álbum) */
+image {
+    min-width: 120px;
+    min-height: 120px;
+    margin-right: 20px;             /* Espaço entre a capa e o texto */
+    border-radius: 8px;             /* Cantos arredondados */
+    /* Sombra opcional para dar profundidade */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* 8. ESTILIZAÇÃO DA BARRA DE PROGRESSO (Simulação visual) */
+/* O Wofi não tem um seletor específico para a barra de progresso simulada,
+   então, se a linha for apenas a barra (como no seu script), 
+   ela usará o #entry padrão, mas podemos dar um destaque sutil */
+
+/* Dica: Você pode criar uma classe CSS específica no seu script, 
+   mas para a simulação com caracteres, o #entry e suas cores já fazem o trabalho. */
+/* --- 5. ITENS DOS BOTÕES DE CONTROLE --- */
+
+/* Seleciona todas as entradas que são botões (exceto a Imagem/Título) */
+/* --- 5. ITENS DOS BOTÕES DE CONTROLE (CORRIGIDO) --- */
+
+/* Seleciona todas as entradas que são botões (3º item em diante) */
+#entry:not(:nth-child(-n+2)) { 
+    background-color: @selection_bg; 
+    margin: 4px;
+    border-radius: 8px;
+    padding: 5px; /* Reduz o padding para tentar deixar menor */
+    width: 90px;  /* Tenta fixar uma largura em pixels para cada botão */
+}
+
+/* Os botões vão aparecer em uma coluna, mas formatados como blocos. */
+/* Infelizmente, horizontal só funciona com um tema Wofi mais complexo ou no Eww. */
+
+#entry:not(:nth-child(-n+2)):hover {
+    background-color: @accent;
+}
+
+#entry:not(:nth-child(-n+2)) #text {
+    color: @selection_fg;
+    font-size: 2.0em; /* Ícones grandes */
+    /* Remove a propriedade 'text-align' inválida */
+}
+#entry:not(:nth-child(-n+2)):selected #text {
+    color: @background;
+}

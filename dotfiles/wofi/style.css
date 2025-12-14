@@ -1,0 +1,19 @@
+window {
+    font-family: "JetBrains Mono Nerd Font", sans-serif;
+    background-color: #282a36; /* Cor escura */
+        border-radius: 10px;
+}
+
+#text {
+    padding: 5px;
+}
+#img {
+    /* Define um tamanho razoável para a capa do álbum */
+    -gtk-icon-theme: none; /* Ignora temas de ícones GTK */
+    min-height: 80px;
+    min-width: 80px;
+    margin: 5px;
+}
+box {
+    background-color: #383a42; /* Cor mais clara para o corpo */
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if pamixer --get-mute | grep -q true; then
+    echo 0
+else
+    pamixer --get-volume
+fi

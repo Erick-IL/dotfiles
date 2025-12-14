@@ -1,0 +1,148 @@
+{
+  "output": ["eDP-1"],
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["hyprland/workspaces", "custom/separator"],
+  "modules-center": ["mpris"],
+  "modules-right": [
+   "custom/network-icon",
+   "custom/network-text",
+   "custom/separator",
+   "custom/pulseaudio-icon",
+   "pulseaudio",
+   "custom/separator",
+   "custom/cpu-icon",
+   "custom/cpu-text",
+   "custom/separator",
+   "custom/memory-icon",
+   "custom/memory-text",
+   "custom/separator",
+   "custom/temperature-icon",
+   "custom/temperature-text",
+   "custom/separator",
+   "custom/battery-icon",
+   "custom/battery-text", 
+   "custom/separator",
+   "clock"
+  ],
+
+  "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+          "default": "", 
+          "empty": "", 
+          "active": "", 
+          "special": "" 
+      },
+      "show-special": true,
+      "on-click": "activate"
+  },
+
+  "mpris": {
+          "format": "🎵 {artist} - {title}",
+          "format-playing": "⏸️ {artist} - {title}", 
+          "format-paused": "▶️ {artist} - {title}", 
+          "player": "playerctld",
+          "max-length": 50,
+          "on-click": "playerctl play-pause", 
+          "on-scroll-up": "playerctl next",   
+          "on-scroll-down": "playerctl previous", 
+          "tooltip": false 
+      },
+  
+  "custom/separator": {
+  	"format": "|",
+  	"tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%H:%M %b %d, %Y}",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  
+  "custom/pulseaudio-icon": {
+  	"format": " ",
+  	"tooltip": false
+  },
+  
+  "pulseaudio": {
+    "format": "{volume}%",
+    "tooltip": false
+  },
+
+  // battery
+  "custom/battery-icon": {
+    "exec": "~/.config/waybar/scripts/battery.sh --icon",
+    "format": "{}",
+    "interval": 1,
+    "tooltip": false
+  },
+  
+  "custom/battery-text": {
+    "exec": "~/.config/waybar/scripts/battery.sh --text",
+    "format": "{}",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  
+  // network
+    
+  "custom/network-icon": {
+  	"exec": "~/.config/waybar/scripts/network.sh --icon",
+  	"interval": 3,
+    "return-type": "json"
+  },
+
+  // temperature
+
+  "custom/temperature-text": {
+    "exec": "~/.config/waybar/scripts/temperature.sh --text",
+    "interval": 5,
+    "tooltip": false,
+    "format": "{} °C"
+  },
+
+  "custom/temperature-icon": {
+    "exec": "~/.config/waybar/scripts/temperature.sh --icon",
+    "interval": 5,
+    "tooltip": false
+    
+  },
+
+
+  // memory 
+  "custom/memory-text": {
+    "exec": "~/.config/waybar/scripts/memory.sh --text",
+    "interval": 2,
+    "tooltip": false
+    
+  },
+
+  "custom/memory-icon": {
+    "exec": "~/.config/waybar/scripts/memory.sh --icon",
+    "interval": 2,
+    "tooltip": false
+    
+  },
+
+  // cpu 
+  
+  "custom/cpu-text": {
+    "exec": "~/.config/waybar/scripts/cpu.sh --text",
+    "interval": 2,
+    "tooltip": false
+    
+  },
+
+  "custom/cpu-icon": {
+    "exec": "~/.config/waybar/scripts/cpu.sh --icon",
+    "interval": 2,
+    "tooltip": false
+    
+  },
+
+  
+}

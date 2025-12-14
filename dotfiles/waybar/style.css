@@ -1,0 +1,121 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+window#waybar {
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 12px;
+  border: 1px solid @pri;
+  margin: 6px 12px;
+  padding: 4px 8px;
+  color: @fg
+}
+
+#custom-separator {
+	padding: 0px 5px;
+	color: @sec
+}
+
+#clock {
+	margin-right: 10px;
+}
+
+#custom-battery-icon,
+#custom-pulseaudio-icon,
+#custom-network-icon,
+#custom-memory-icon,
+#custom-temperature-icon,
+#custom-cpu-icon {
+	color: @pri;
+	font-size: 16px;
+	font-family: "Font Awesome 6 Free", "Material Symbols Rounded";
+}
+
+
+/* distanciamento entre os modulos */
+#custom-battery-icon {
+	margin-right: 10px;
+}
+
+#custom-pulseaudio-icon {
+	margin-right: 3px;
+	font-size: 13px;
+}
+
+#custom-network-icon {
+	margin-right: 10px;
+	font-size: 10px;
+}
+
+#custom-cpu-icon {
+	margin-right: 10px;
+}
+
+#custom-memory-icon {
+	margin-right: 7px;
+	font-size: 13px;
+}
+
+#custom-temperature-icon {
+	margin-right: 3px;
+}
+
+
+/* workspaces */
+
+#workspaces button {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    margin: 0 4px;
+    font-size: 14px;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+#workspaces button.active {
+    color: @pri;
+    box-shadow: none; 
+    border: none;
+    background-color: transparent; 
+}
+
+#workspaces button.special {
+    color: @sec; 
+    background-color: transparent;
+    padding: 0;
+}
+
+
+#workspaces button:hover {
+    background: transparent;
+    box-shadow: none ; 
+    border: none ;
+    color: @fg ;
+    transition: none; 
+}
+
+#workspaces button.active:hover {
+    color: @pri ; 
+    background: transparent ;
+    box-shadow: none ;
+    border: none ;
+}
+
+#workspaces button.special:hover {
+    color: @sec ; 
+    background: transparent ;
+    box-shadow: none ;
+}
+
+
+#custom-network {
+  padding: 0 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
